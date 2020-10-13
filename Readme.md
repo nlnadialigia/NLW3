@@ -53,6 +53,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 - Javascript
 - React
 - Typescript
+- NodeJs
 
 <br>
 <br>
