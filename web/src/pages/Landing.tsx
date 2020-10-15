@@ -18,7 +18,7 @@ function Landing() {
         </main>
 
         <div className="location">
-          <strong>Região de SJRP</strong>
+          <strong>Ribeirão Preto</strong>
           <span>São Paulo</span>
         </div>
 

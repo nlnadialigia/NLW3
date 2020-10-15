@@ -33,7 +33,7 @@ export default function Orphanage() {
   const [activeImageIndex, SetActiveImageIndex] = useState(0)
 
   useEffect(() => {
-    api.get(`orphanage/${params.id}`).then((response) => {
+    api.get(`orphanages/${params.id}`).then((response) => {
       setOrphanage(response.data);
     });
   }, [params.id]);
@@ -53,7 +53,9 @@ export default function Orphanage() {
             {orphanage.images.map((image, index) =>{
               return (
                 <button 
-                  className="active" 
+                  className={
+                    activeImageIndex === index ? 'active' : ''
+                  } 
                   type="button"
                   key={image.id}
                   onClick={()=>{
