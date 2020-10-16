@@ -2,13 +2,24 @@ import React from 'react';
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { Feather } from '@expo/vector-icons'
+import { useFonts } from 'expo-font'
+import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold} from '@expo-google-fonts/nunito'
 
 import mapMaker from './src/images/map-maker.png'
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Nunito_600SemiBold, 
+    Nunito_700Bold, 
+    Nunito_800ExtraBold
+  })
+
+  if (!fontsLoaded) {
+    return null
+  }
+
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
       <MapView 
         provider={PROVIDER_GOOGLE}
         style={styles.map}
@@ -43,7 +54,7 @@ export default function App() {
       <View style={styles.footer}>
           <Text style={styles.footerText}>2 orfanatos econtrados</Text>
           <TouchableOpacity style={styles.createOrphanageButton} onPress={() => {alert('criar')}}>
-            <Feather name="plus" color='ffff' size={20} />
+            <Feather name="plus" color='fff' size={20} />
           </TouchableOpacity>
       </View>
 
@@ -71,6 +82,7 @@ const styles = StyleSheet.create({
   },
 
   calloutText: {
+    fontFamily: 'Nunito_700Bold',
     color: '#0089a5',
     fontSize: 14
   },
@@ -80,7 +92,7 @@ const styles = StyleSheet.create({
     left: 24,
     right: 24,
     bottom: 32,
-    backgroundColor: '#ffff',
+    backgroundColor: '#fff',
     borderRadius: 20,
     height: 56,
     paddingLeft: 24,
@@ -92,6 +104,7 @@ const styles = StyleSheet.create({
   },
 
   footerText: {
+    fontFamily: 'Nunito_700Bold',
     color: '#8fa7b3'
   },
 
