@@ -4,12 +4,17 @@ import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons'
 import mapMaker from '../images/map-maker.png'
+import { RectButton } from 'react-native-gesture-handler';
 
 export default function OrphanagesMap(){
     const navigation = useNavigation()
 
     function handleNavigateToOrphanageDetails() {
         navigation.navigate('OrphanageDetails')
+    }
+
+    function handleNavigateToCreateOrphanage() {
+      navigation.navigate('SelectedMapPosition')
     }
 
     return (
@@ -47,9 +52,9 @@ export default function OrphanagesMap(){
   
         <View style={styles.footer}>
             <Text style={styles.footerText}>2 orfanatos econtrados</Text>
-            <TouchableOpacity style={styles.createOrphanageButton} onPress={() => {alert('criar')}}>
-              <Feather name="plus" color='fff' size={20} />
-            </TouchableOpacity>
+            <RectButton style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
+              <Feather name='plus' color='fff' size={20} />
+            </RectButton>
         </View>
   
       </View> 
@@ -93,9 +98,9 @@ const styles = StyleSheet.create({
       height: 56,
       paddingLeft: 24,
       
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
       elevation: 3
     },
   
@@ -109,7 +114,7 @@ const styles = StyleSheet.create({
       height: 56,
       backgroundColor: '#15c3d6',
       borderRadius: 20,
-      justifyContent: "center",
-      alignItems: "center"
+      justifyContent: 'center',
+      alignItems: 'center'
     }
   })
