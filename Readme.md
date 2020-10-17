@@ -32,9 +32,9 @@ ___
 
 O NLW é um evento online, de duração de uma semana, onde será desenvolvida uma aplicação completa.
 
-Nesta edição a aplicação escolhida foi em homenagem ao dia das crianças. É uma aplicação para localização de orfanatos, onde existem milhares de crianças que precisam de carinho e atenção.
+Nesta edição a aplicação escolhida foi em homenagem ao dia das crianças. É uma aplicação para localização de Casa de Acolimento Institucional, onde existem milhares de crianças que precisam de carinho e atenção.
 
-Para o desenvolvimento da aplicação eu escolhi a Região de São José do Rio Preto.
+Devido ao curto espaço de tempo para o desenvolvimeto total da aplicação, os dados adicionados são aleatórios, utilizados somente para teste das funcionalidades.
 
 <p align="center">
 <img src="./assets/happy.png" height=400 >
@@ -48,12 +48,11 @@ Para o desenvolvimento da aplicação eu escolhi a Região de São José do Rio 
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
-- HTML5
-- CSS3
-- Javascript
-- React
-- Typescript
-- NodeJs
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org)
+- [React Native](https://facebook.github.io/react-native/)
+- [Expo](https://expo.io/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 <br>
 <br>
