@@ -15,6 +15,7 @@ interface OrphanageDataRouteParams {
 
 export default function OrphanageData() {
   const [name, setName] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
@@ -30,6 +31,7 @@ export default function OrphanageData() {
 
     console.log({
       name,
+      whatsapp,
       latitude,
       longitude,
       about,
@@ -41,6 +43,7 @@ export default function OrphanageData() {
     const data = new FormData();
 
     data.append('name', name);
+    data.append('whatsapp', whatsapp);
     data.append('about', about);
     data.append('latitude', String(latitude));
     data.append('longitude', String(longitude));
@@ -94,6 +97,13 @@ export default function OrphanageData() {
         onChangeText={setName}
       />
 
+      <Text style={styles.label}>Whatsapp</Text>
+        <TextInput
+          style={styles.input}
+          value={whatsapp}
+          onChangeText={setWhatsapp}
+      />
+
       <Text style={styles.label}>Sobre</Text>
       <TextInput
         style={[styles.input, { height: 110 }]}
@@ -102,10 +112,7 @@ export default function OrphanageData() {
         onChangeText={setAbout}
       />
 
-      {/* <Text style={styles.label}>Whatsapp</Text>
-      <TextInput
-        style={styles.input}
-      /> */}
+
 
       <Text style={styles.label}>Fotos</Text>
 

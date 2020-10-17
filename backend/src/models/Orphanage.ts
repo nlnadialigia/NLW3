@@ -8,6 +8,9 @@ export default class Orphanage{
 
     @Column()
     name: string
+
+    @Column()
+    whatsapp: number
     
     @Column()
     latitude: number

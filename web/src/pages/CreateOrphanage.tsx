@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import '../styles/pages/create-orphanage.css';
 import api from "../services/api";
 
+
 export default function CreateOrphanage() {
   const history = useHistory()
   const [position, setPositon] = useState({
@@ -16,13 +17,13 @@ export default function CreateOrphanage() {
     longitude: 0
   })
   const [name, setName] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
   const [about, setAbout] = useState('')
   const [instructions, setInstructions] = useState('')
   const [opening_hours, setOpeningHours] = useState('')
   const [open_on_weekends, setOpenOnWeekends] = useState(true)
   const [images, setImages] = useState<File[]>([])
-  const [previewImages, setPreviewImages] = useState<string[]>([])
-
+  const [previewImages, setPreviewImages] = useState<string[]>([]) 
 
   function handleMapClick(event:LeafletMouseEvent) {
     const { lat, lng } = event.latlng
@@ -41,6 +42,7 @@ export default function CreateOrphanage() {
     const data = new FormData()
 
     data.append('name', name)
+    data.append('whatsapp', whatsapp)
     data.append('about', about)
     data.append('latitude', String(latitude))
     data.append('longitude', String(longitude))
@@ -50,7 +52,7 @@ export default function CreateOrphanage() {
 
     images.forEach(image => {
       data.append('images', image)
-    });
+    });   
 
     await api.post('orphanages', data)
 
@@ -75,6 +77,7 @@ export default function CreateOrphanage() {
     setPreviewImages(selectedImagesPreview)
   }
 
+  
   return (
     <div id="page-create-orphanage">
       <Sidebar />
@@ -85,7 +88,7 @@ export default function CreateOrphanage() {
             <legend>Dados</legend>
 
             <Map 
-              center={[-27.2092052,-49.6401092]} 
+              center={[-21.1694028,-47.7900697]} 
               style={{ width: '100%', height: 280 }}
               zoom={15}
               onclick={handleMapClick}
@@ -105,6 +108,16 @@ export default function CreateOrphanage() {
                 id="name" 
                 value={name}
                 onChange={event => setName(event.target.value)}
+              />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="whatsapp">Whatsapp</label>
+              <input 
+                id="name" 
+                value={whatsapp}
+                placeholder="DDD+número - somente números"
+                onChange={event => setWhatsapp(event.target.value)}                
               />
             </div>
 
