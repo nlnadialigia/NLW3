@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { useNavigation } from "@react-navigation/native";
-import { Feather } from "@expo/vector-icons";
-import mapMaker from "../images/map-maker.png";
-import { RectButton } from "react-native-gesture-handler";
-import api from "../services/api";
+import React, { useCallback, useEffect, useState } from "react"
+import { Dimensions, StyleSheet, Text, View } from "react-native"
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from "react-native-maps"
+import { useFocusEffect, useNavigation } from "@react-navigation/native"
+import { Feather } from "@expo/vector-icons"
+import mapMaker from "../images/map-maker.png"
+import { RectButton } from "react-native-gesture-handler"
+import api from "../services/api"
 
 interface Orphanage {
   id: number,
@@ -16,20 +16,22 @@ interface Orphanage {
 
 export default function OrphanagesMap() {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([])
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
-  useEffect(() => {
-    api.get("orphanages").then((response) => {
-      setOrphanages(response.data);
-    });
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      api.get('orphanages').then(response => {
+        setOrphanages(response.data)
+      })
+    }, [])
+  )
 
   function handleNavigateToOrphanageDetails(id:number) {
-    navigation.navigate("OrphanageDetails", {id});
+    navigation.navigate("OrphanageDetails", {id})
   }
 
   function handleNavigateToCreateOrphanage() {
-    navigation.navigate("SelectedMapPosition");
+    navigation.navigate("SelectedMapPosition")
   }
 
   return (
@@ -80,7 +82,7 @@ export default function OrphanagesMap() {
         </RectButton>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -137,4 +139,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-});
+})
