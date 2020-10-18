@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/assets/logo.png" width=300>
+<img src="assets/logo.png" width=300>
 </p>
 
 <p align="center">
@@ -37,8 +37,16 @@ Nesta edição a aplicação escolhida foi em homenagem ao dia das crianças. É
 Devido ao curto espaço de tempo para o desenvolvimeto total da aplicação, os dados adicionados são aleatórios, utilizados somente para teste das funcionalidades.
 
 <p align="center">
-<img src="./assets/happy.png" height=400 >
+<img src="./assets/happy.png" height=300 >
 </p>
+
+<br>
+<h1 align="center">
+Quer conferir como ficou a aplicação pronta?
+<a href="https://nlnadialigia-happy.netlify.app/"><br>
+  <img src="./assets/click.webp" width=100>
+</a>
+</h1>
 
 
 <br>
